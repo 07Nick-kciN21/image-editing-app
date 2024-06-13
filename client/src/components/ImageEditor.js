@@ -3,23 +3,22 @@ import ImagePreview from './ImagePreview';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
-function ImageEditor({ uploadedImage }) {
-  const [brightness, setBrightness] = useState(100);
-  const [contrast, setContrast] = useState(100);
+function ImageEditor({ uploadedImage, brightness, contrast, setBrightness, setContrast }) {
+  // const [brightness, setBrightness] = useState(100);
+  // const [contrast, setContrast] = useState(100);
   const [editedImage, setEditedImage] = useState(null);
 
   const handleBrightnessChange = (e) => setBrightness(e.target.value);
   const handleContrastChange = (e) => setContrast(e.target.value);
 
   const handleSaveImage = async () => {
+    console.log("uploadedImage",uploadedImage);
     try {
       const response = await axios.post('/api/images/edit', {
         filePath: uploadedImage,
         brightness,
         contrast
       });
-
-      console.log('Edited image response:', response.data);  // 添加日志
       setEditedImage('http://localhost:5000'+response.data.outputFilePath);
     } catch (error) {
       console.error('Failed to save image', error);
@@ -41,11 +40,11 @@ function ImageEditor({ uploadedImage }) {
     <div>
       <div>
         <label>亮度:</label>
-        <input type="range" min="0" max="200" value={brightness} onChange={handleBrightnessChange} />
+        <input id="bright" type="range" min="0" max="200" value={brightness} onChange={handleBrightnessChange} />
       </div>
       <div>
         <label>對比度:</label>
-        <input type="range" min="0" max="200" value={contrast} onChange={handleContrastChange} />
+        <input id="contrast" type="range" min="0" max="200" value={contrast} onChange={handleContrastChange} />
       </div>
       <ImagePreview uploadedImage={uploadedImage} brightness={brightness} contrast={contrast} />
       <button onClick={handleSaveImage}>保存圖片</button>

@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+
 function ImageUploader({ setUploadedImage }) {
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
+    console.log("file:", e.target.files[0])
     if (file) {
       const formData = new FormData();
       formData.append('image', file);
@@ -22,7 +24,7 @@ function ImageUploader({ setUploadedImage }) {
   return (
     <div>
       {/* 上傳圖片，onChange:當輸入改變時觸發handleImageUpload函式 */}
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
+      <input type="file" accept="image/*" onChange={handleImageUpload}  />
     </div>
   );
 }
