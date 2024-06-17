@@ -17,7 +17,8 @@ const imageController = require('../controllers/imageController');
 const upload = multer({ dest: 'uploads/'});
 const router = express.Router();
 //  upload.single() : 檔案類型
-router.post('/upload', upload.single('image'), imageController.uploadImage);
+router.post('/upload/image', upload.single('image'), imageController.uploadImage);
+router.post('/upload/folder', upload.array('images'), imageController.uploadFolder);
 router.post('/edit', imageController.editImage);
 
 module.exports = router;

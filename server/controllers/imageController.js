@@ -8,6 +8,15 @@ exports.uploadImage = (req, res) => {
   res.json({ filePath });
 };
 
+exports.uploadFolder = (req, res) => {
+  const files = req.files;
+  const filePaths = []
+  files.forEach(file => {
+    filePaths.push(file.path);
+  });
+  res.json({ filePaths });
+}
+
 exports.editImage = async (req, res) => {
   const { filePath, brightness, contrast } = req.body;
   // /uploads/edited-${Date.now()}.jpg
