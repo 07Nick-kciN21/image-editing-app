@@ -14,3 +14,15 @@ img {
     height: auto;
     margin-top: 20px;
 }
+
+
+.image-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px; /* 可以根据需要调整间距 */
+}
+
+.image-list img {
+    width: 100%;
+    height: auto;
+}

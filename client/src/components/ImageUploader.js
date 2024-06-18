@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-function ImageUploader({ setUploadedImage }) {
+function ImageUploader({ setUploadedImage, setUploadedFolder }) {
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     console.log("e.target.files:", e.target.files);
@@ -29,26 +29,18 @@ function ImageUploader({ setUploadedImage }) {
       for (let i = 0; i < files.length; i++) {
         formData.append('images', files[i]);
       }
-      const response = await axios.post('/api/images/upload/folder', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      console.log("res: ", response);
-      console.log("e.target.files:", e.target.files);
-      console.log("file:", e.target.files[0]);
-      // try{
-      //   const response = await axios.post('/api/images/upload/folder', formData, {
-      //     headers: {
-      //       'Content-Type': 'multipart/form-data'
-      //     }
-      //   });
-      //   console.log("res: ", response);
-      //   console.log("e.target.files:", e.target.files);
-      //   console.log("file:", e.target.files[0]);
-      // } catch (error){
-      //   console.error('Failed to upload image', error);
-      // }
+      try{
+        const response = await axios.post('/api/images/upload/folder', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log("res: ", response);
+        console.log("e.target.files:", response.data.filePaths);
+        setUploadedFolder(response.data.filePaths)
+      } catch (error){
+        console.error('Failed to upload image', error);
+      }
     }
   }
 
