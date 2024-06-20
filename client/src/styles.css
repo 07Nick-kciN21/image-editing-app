@@ -26,3 +26,20 @@ img {
     width: 100%;
     height: auto;
 }
+
+#largeImageContainer {
+    width: 600px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    border: 5px solid black; /* Black border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#largeImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+    display: none;
+}

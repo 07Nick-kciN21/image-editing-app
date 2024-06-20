@@ -19,11 +19,18 @@ function App() {
   const handleFolderUpload = (images) => {
     setUploadedFolder(images);
   };
+
+  const handleImageClick = (image) => {
+    setUploadedImage(image);
+    setBrightness(100);
+    setContrast(100);
+  };
+
   return (
     <div className="App">
       <h1>圖片編輯器</h1>
       <ImageUploader setUploadedImage={handleImageUpload} setUploadedFolder={handleFolderUpload} />
-      {uploadedFolder.length > 0 && <ImageList images={uploadedFolder} />}
+      {uploadedFolder.length > 0 && <ImageList images={uploadedFolder} onImageClick={handleImageClick} />}
       {uploadedImage && (
           <ImageEditor 
             uploadedImage={uploadedImage}
