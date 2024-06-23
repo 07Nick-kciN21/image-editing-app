@@ -11,7 +11,6 @@ function App() {
 
   const handleImageUpload = (image) => {
     setUploadedImage(image);
-    // Reset brightness and contrast when a new image is uploaded
     setBrightness(100);
     setContrast(100);
   };

@@ -4,9 +4,10 @@ import axios from 'axios';
 function ImageUploader({ setUploadedImage, setUploadedFolder }) {
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    console.log("e.target.files:", e.target.files);
-    console.log("file:", e.target.files[1]);
-    if (file) {
+    const currentImageUrl = URL.createObjectURL(file)
+    setUploadedImage(currentImageUrl);
+    // URL.revokeObjectURL(currentImageUrl);
+    if (file && false) {
       const formData = new FormData();
       formData.append('image', file);
       try {
@@ -24,7 +25,15 @@ function ImageUploader({ setUploadedImage, setUploadedFolder }) {
 
   const handlefolderUpload = async (e) => {
     const files = e.target.files;
-    if(files){
+    const filePaths = [];
+    for (let i = 0; i < files.length; i++) {
+      const currentImageUrl = URL.createObjectURL(files[i]);
+      filePaths.push(currentImageUrl);
+      
+    };
+    setUploadedFolder(filePaths);
+    
+    if(files && false){
       const formData = new FormData();
       for (let i = 0; i < files.length; i++) {
         formData.append('images', files[i]);
