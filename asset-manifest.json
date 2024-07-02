@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/image-editing-app/static/css/main.f95f2617.chunk.css",
+    "main.js": "/image-editing-app/static/js/main.9d850837.chunk.js",
+    "main.js.map": "/image-editing-app/static/js/main.9d850837.chunk.js.map",
+    "runtime-main.js": "/image-editing-app/static/js/runtime-main.5bfa784d.js",
+    "runtime-main.js.map": "/image-editing-app/static/js/runtime-main.5bfa784d.js.map",
+    "static/js/2.b5156ea9.chunk.js": "/image-editing-app/static/js/2.b5156ea9.chunk.js",
+    "static/js/2.b5156ea9.chunk.js.map": "/image-editing-app/static/js/2.b5156ea9.chunk.js.map",
+    "index.html": "/image-editing-app/index.html",
+    "static/css/main.f95f2617.chunk.css.map": "/image-editing-app/static/css/main.f95f2617.chunk.css.map",
+    "static/js/2.b5156ea9.chunk.js.LICENSE.txt": "/image-editing-app/static/js/2.b5156ea9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5bfa784d.js",
+    "static/js/2.b5156ea9.chunk.js",
+    "static/css/main.f95f2617.chunk.css",
+    "static/js/main.9d850837.chunk.js"
+  ]
+}
